@@ -1,0 +1,21 @@
+- id: "1"
+  title: TriageDecision schema
+  description: >-
+    Implement the TriageDecision Pydantic model (CAP-1): category, priority,
+    route, and one-sentence rationale fields with allowed-value validation;
+    invalid or missing fields raise a structured error.
+  spec_checkpoint: false
+  done_checkpoint: false
+
+- id: "2"
+  title: Seed loader
+  description: >-
+    Implement load_seed.py (CAP-2): reads seed/tickets.csv and
+    seed/customers.csv and loads them idempotently into app.db as the
+    tickets and customers tables, column-compatible with mcp/triage_server.py.
+  spec_checkpoint: false
+  done_checkpoint: false
+  invoke_dev_with: >-
+    Story 1 (TriageDecision schema) must be complete before starting this
+    story. Use INSERT OR REPLACE (or equivalent SQLite upsert) for
+    idempotency — do not drop and recreate tables.
